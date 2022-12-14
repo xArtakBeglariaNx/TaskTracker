@@ -11,3 +11,5 @@ In this app used if you need install with packages you can use this command from
     - dotnet-ef tool                                dotnet tool install --global dotnet-ef
 
 Also i have on my PC installed SSMS (Sql Server Management Studio(stable version) and SQL Server 2022 (Express))
+
+In Directory "DataBaseBackup". You can find DataBase backup and restore database on your SSMS (Sql Server Management Studio), also in this directory have Data Tier file for restore DataBase from Data-Tier Application 

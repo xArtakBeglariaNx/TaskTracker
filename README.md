@@ -13,3 +13,5 @@ _**In this app used if you need install with packages you can use this command f
 - Microsoft.EntityFrameworkCore.SqlServer -- https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer
 - Microsoft.EntityFrameworkCore.Design -- https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design
 - dotnet-ef tool -- https://www.nuget.org/packages/dotnet-ef#readme-body-tab
+
+**In Directory "DataBaseBackup". You can find DataBase backup and restore database on your SSMS (Sql Server Management Studio), also in this directory have Data Tier file for restore DataBase from Data-Tier Application**
