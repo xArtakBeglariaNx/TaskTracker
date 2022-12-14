@@ -9,6 +9,7 @@ public class Project
     public string? Name { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime CompletionDate { get; set; }
+    public string? SelectedProjectStatus { get; set; }
     
     public enum ProjectStatus
     {

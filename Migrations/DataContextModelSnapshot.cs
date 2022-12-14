@@ -36,6 +36,9 @@ namespace TaskTracker.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SelectedProjectStatus")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
@@ -56,6 +59,9 @@ namespace TaskTracker.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SelectedTaskStatus")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
