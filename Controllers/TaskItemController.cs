@@ -24,7 +24,7 @@ public class TaskItemController : ControllerBase
         return Ok(taskItems);
     }
 
-    [HttpGet("id")]
+    [HttpGet("GetById")]
     public ActionResult<TaskItem> GetSingle(int? id)
     {
         if (id == null || id > _dataContext.TaskItems.Count())
@@ -37,19 +37,23 @@ public class TaskItemController : ControllerBase
     }
 
     //Creat part
-    [HttpPost]
-    public ActionResult<TaskItem> Create(TaskItem newTask)
+    [HttpPost("CreateTask")]
+    public ActionResult<TaskItem> CreateTask(string name, string description, string selectedStatus, int priority, int projectId)
     {
+        var newTask = new TaskItem(){Name = name, Description = description, ProjectId = projectId, SelectedTaskStatus = selectedStatus, Priority = priority};
+        
         _dataContext.Add(newTask);
         _dataContext.SaveChanges();
-            
+
         return Ok(newTask);
     }
     
     //Edit part
-    [HttpPut]
-    public ActionResult<TaskItem> Edit(TaskItem editTask)
+    [HttpPut("EditTask")]
+    public ActionResult<TaskItem> Edit(int id,string name, string description, string selectedStatus, int priority, int projectId)
     {
+        var editTask = new TaskItem(){Id = id, Name = name, Description = description, ProjectId = projectId, SelectedTaskStatus = selectedStatus, Priority = priority};
+        
         _dataContext.Update(editTask);
         _dataContext.SaveChanges();
 
@@ -57,7 +61,7 @@ public class TaskItemController : ControllerBase
     }
     
     //Delete part
-    [HttpDelete("id")]
+    [HttpDelete("DeleteById")]
     public ActionResult<TaskItem> DeleteTask(int? id)
     {
         if (id == null || id > _dataContext.TaskItems.Count())

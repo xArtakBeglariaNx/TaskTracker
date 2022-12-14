@@ -12,7 +12,7 @@ using TaskTracker.Data;
 namespace TaskTracker.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221214053341_InitialCreate")]
+    [Migration("20221214115941_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -39,6 +39,9 @@ namespace TaskTracker.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
+
                     b.Property<string>("SelectedProjectStatus")
                         .HasColumnType("nvarchar(max)");
 
@@ -63,6 +66,12 @@ namespace TaskTracker.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SelectedTaskStatus")
                         .HasColumnType("nvarchar(max)");

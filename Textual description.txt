@@ -1,0 +1,13 @@
+﻿This is task about tracker which contains in the projects and search all tasks in project
+
+I am using most popular pattern MVC, in this project using in SwaggerUI instead custom View
+
+App create documentation with Swagger
+
+In this app used if you need install with packages you can use this command from terminal. All packages have last stable versions: 
+    - Microsoft.EntityFrameworkCore                 dotnet add package Microsoft.EntityFrameworkCore
+    - Microsoft.EntityFrameworkCore.SqlServer       dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+    - Microsoft.EntityFrameworkCore.Design          dotnet add package Microsoft.EntityFrameworkCore.Design 
+    - dotnet-ef tool                                dotnet tool install --global dotnet-ef
+
+Also i have on my PC installed SSMS (Sql Server Management Studio(stable version) and SQL Server 2022 (Express))

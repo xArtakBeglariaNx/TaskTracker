@@ -9,7 +9,7 @@ namespace TaskTracker.Controllers;
 public class ProjectController : ControllerBase
 {
     private readonly DataContext _dataContext;
-
+    
     public ProjectController(DataContext dataContext)
     {
         _dataContext = dataContext;
@@ -24,7 +24,7 @@ public class ProjectController : ControllerBase
         return Ok(projects);
     }
 
-    [HttpGet("id")]
+    [HttpGet("GetById")]
     public ActionResult<Project> GetSingle(int? id)
     {
         if (id == null || id > _dataContext.Projects.Count())
@@ -37,9 +37,11 @@ public class ProjectController : ControllerBase
     }
 
     //Creat part
-    [HttpPost]
-    public ActionResult<Project> Create(Project newProject)
+    [HttpPost("Create")]
+    public ActionResult<Project> Create(string name, DateTime startDate, DateTime completionDate, string selectedStatus, int priority)
     {
+        var newProject = new Project(){Name = name, StartDate = startDate, CompletionDate = completionDate, SelectedProjectStatus = selectedStatus, Priority = priority};
+        
         _dataContext.Add(newProject);
         _dataContext.SaveChanges();
             
@@ -47,9 +49,11 @@ public class ProjectController : ControllerBase
     }
     
     //Edit part
-    [HttpPut]
-    public ActionResult<Project> Edit(Project editProject)
+    [HttpPut("Edit")]
+    public ActionResult<Project> Edit(int id ,string name, DateTime startDate, DateTime completionDate, string selectedProjectSelectedStatus, int priority)
     {
+        var editProject = new Project(){Id = id, Name = name, StartDate = startDate, CompletionDate = completionDate, SelectedProjectStatus = selectedProjectSelectedStatus, Priority = priority};
+        
         _dataContext.Update(editProject);
         _dataContext.SaveChanges();
 
@@ -57,7 +61,7 @@ public class ProjectController : ControllerBase
     }
     
     //Delete part
-    [HttpDelete("id")]
+    [HttpDelete("DeleteById")]
     public ActionResult<Project> DeleteProject(int? id)
     {
         if (id == null || id > _dataContext.Projects.Count())
@@ -73,9 +77,11 @@ public class ProjectController : ControllerBase
     }
     
     //Part Create(Add tasks in project)
-    [HttpPost("add/Task")]
-    public ActionResult<TaskItem> CreateTask(TaskItem newTask)
+    [HttpPost("Add/Task")]
+    public ActionResult<TaskItem> CreateTask(string name, string description, string selectedStatus, int priority, int projectId)
     {
+        var newTask = new TaskItem(){Name = name, Description = description, ProjectId = projectId, SelectedTaskStatus = selectedStatus, Priority = priority};
+        
         _dataContext.Add(newTask);
         _dataContext.SaveChanges();
 
@@ -83,7 +89,7 @@ public class ProjectController : ControllerBase
     }
     
     //Part : Delete Task from project
-    [HttpDelete("delete/Task")]
+    [HttpDelete("Delete/Task")]
     public ActionResult<TaskItem> DeleteTask(int? id)
     {
         if (id == null || id > _dataContext.TaskItems.Count())
@@ -99,11 +105,49 @@ public class ProjectController : ControllerBase
     }
     
     //Part : View all tasks in the Project
-    [HttpGet("GetAllTasks")]
-    public ActionResult<TaskItem> GetAllTasks()
+    [HttpGet("GetAllTasksFromProject")]
+    public ActionResult<TaskItem> GetAllTasks(int projectId)
     {
-        IEnumerable<TaskItem> taskItems = _dataContext.TaskItems;
+        var taskItems = _dataContext.TaskItems;
+        var filterByProjectId = from t in taskItems where t.ProjectId == projectId select t;
 
-        return Ok(taskItems);
+        return Ok(filterByProjectId);
+    }
+
+    [HttpGet("FilterByProjectPriority")]
+    public IActionResult FilterByProjectPriority(int priority)
+    {
+        var listOfProjects = _dataContext.Projects;
+        var sortedProjectsList = from p in listOfProjects where p.Priority == priority select p;
+
+        return Ok(sortedProjectsList);
+    }
+    
+    
+    [HttpGet("FilterByStartDate")]
+    public IActionResult FilterByStartDate(DateTime dateTime)
+    {
+        var listOfProjects = _dataContext.Projects;
+        var sortedProjectsList = from p in listOfProjects where p.StartDate == dateTime select p;
+
+        return Ok(sortedProjectsList);
+    }
+    
+    [HttpGet("SortByName")]
+    public IActionResult SortByName()
+    {
+        var listOfProjects = _dataContext.Projects;
+        var sortedProjectsList = from p in listOfProjects orderby p.Name select p;
+
+        return Ok(sortedProjectsList);
+    }
+
+    [HttpPost("FilteringByName")]
+    public IActionResult FilteringByName(string filterParam)
+    {
+        var listOfProject = _dataContext.Projects;
+        var filteredList = from p in listOfProject where p.Name == filterParam select p;
+        
+        return Ok(filteredList);
     }
 }
