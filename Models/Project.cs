@@ -1,4 +1,6 @@
-﻿namespace TaskTracker.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TaskTracker.Models;
 
 /// <summary>
 /// Properties of Project Entity
@@ -7,6 +9,7 @@ public class Project
 {
     public int Id { get; set; }
     
+    [Required]
     public string? Name { get; set; }
     public DateTime StartDate { get; set; } = DateTime.Now.Date;
     public DateTime CompletionDate { get; set; } = DateTime.Today.Date;
