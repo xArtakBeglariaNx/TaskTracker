@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Extensions;
 using TaskTracker.Data;
 using TaskTracker.Models;
+using TaskStatus = TaskTracker.Models.TaskStatus;
 
 namespace TaskTracker.Controllers;
 
@@ -38,9 +40,9 @@ public class ProjectController : ControllerBase
 
     //Creat part
     [HttpPost("Create")]
-    public ActionResult<Project> Create(string name, DateTime startDate, DateTime completionDate, string selectedStatus, int priority)
+    public ActionResult<Project> Create(string name, DateTime startDate, DateTime completionDate, ProjectStatus selectedStatus, int priority)
     {
-        var newProject = new Project(){Name = name, StartDate = startDate, CompletionDate = completionDate, SelectedProjectStatus = selectedStatus, Priority = priority};
+        var newProject = new Project(){Name = name, StartDate = startDate, CompletionDate = completionDate, ProjectStatus = selectedStatus, Priority = priority};
         
         _dataContext.Add(newProject);
         _dataContext.SaveChanges();
@@ -50,9 +52,9 @@ public class ProjectController : ControllerBase
     
     //Edit part
     [HttpPut("Edit")]
-    public ActionResult<Project> Edit(int id ,string name, DateTime startDate, DateTime completionDate, string selectedProjectSelectedStatus, int priority)
+    public ActionResult<Project> Edit(int id ,string name, DateTime startDate, DateTime completionDate, ProjectStatus selectedStatus, int priority)
     {
-        var editProject = new Project(){Id = id, Name = name, StartDate = startDate, CompletionDate = completionDate, SelectedProjectStatus = selectedProjectSelectedStatus, Priority = priority};
+        var editProject = new Project(){Id = id, Name = name, StartDate = startDate, CompletionDate = completionDate, ProjectStatus = selectedStatus, Priority = priority};
         
         _dataContext.Update(editProject);
         _dataContext.SaveChanges();
@@ -78,9 +80,9 @@ public class ProjectController : ControllerBase
     
     //Part Create(Add tasks in project)
     [HttpPost("Add/Task")]
-    public ActionResult<TaskItem> CreateTask(string name, string description, string selectedStatus, int priority, int projectId)
+    public ActionResult<TaskItem> CreateTask(string name, string description, TaskStatus selectedStatus, int priority, int projectId)
     {
-        var newTask = new TaskItem(){Name = name, Description = description, ProjectId = projectId, SelectedTaskStatus = selectedStatus, Priority = priority};
+        var newTask = new TaskItem(){Name = name, Description = description, ProjectId = projectId, TaskStatus = selectedStatus, Priority = priority};
         
         _dataContext.Add(newTask);
         _dataContext.SaveChanges();

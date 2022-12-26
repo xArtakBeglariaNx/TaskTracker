@@ -16,16 +16,10 @@ public class TaskItem
     public string? Name { get; set; }
     public string? Description { get; set; }
     
-    //This property need for get selected status from TaskStatus
-    [Required]
-    public string? SelectedTaskStatus { get; set; }
+    //This property need for get selected status from TaskStatus[Required]
+    public TaskStatus TaskStatus { get; set; }
     [Required]
     public int Priority { get; set; }
+
     
-    public enum TaskStatus
-    {
-        ToDo,
-        InProgress,
-        Done
-    }
 }

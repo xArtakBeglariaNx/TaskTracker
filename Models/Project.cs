@@ -14,14 +14,9 @@ public class Project
     public DateTime StartDate { get; set; } = DateTime.Now.Date;
     public DateTime CompletionDate { get; set; } = DateTime.Today.Date;
     
-    //This property need for get selected status from ProjectStatus
-    public string? SelectedProjectStatus { get; set; }
+    //This property need for get selected status from ProjectStatus[Required]
+    public ProjectStatus ProjectStatus { get; set; }
     public int Priority { get; set; }
+
     
-    public enum ProjectStatus
-    {
-        NotStarted,
-        Active,
-        Completed
-    }
 }
