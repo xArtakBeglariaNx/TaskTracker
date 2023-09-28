@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vpLxeqTvA1Qv4knRiu8y0v9BYCDgi1atsAY5/u8cMaoklTKbvXMB9t4HpTFvTmAbv3GAISBshXwGJjRhFh3zhA==",
+  "dgSpecHash": "h/DjaLg0WeMa3S3uXN1bMAaUoZ6nIS2mhf5dQJI08CzMy79Ytd95qK1g1zh1h+Pc6d6qoLssmqRwl+KKQlUyBA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj",
+  "projectFilePath": "c:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artge\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\artge\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

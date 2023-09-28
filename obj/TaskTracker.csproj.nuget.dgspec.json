@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj": {}
+    "c:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj": {
+    "c:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj",
+        "projectUniqueName": "c:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj",
         "projectName": "TaskTracker",
-        "projectPath": "C:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj",
+        "projectPath": "c:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\TaskTracker.csproj",
         "packagesPath": "C:\\Users\\artge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\obj\\",
+        "outputPath": "c:\\Users\\artge\\RiderProjects\\TaskTracker\\TaskTracker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

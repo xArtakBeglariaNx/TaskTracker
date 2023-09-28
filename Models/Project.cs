@@ -17,6 +17,4 @@ public class Project
     //This property need for get selected status from ProjectStatus[Required]
     public ProjectStatus ProjectStatus { get; set; }
     public int Priority { get; set; }
-
-    
 }
